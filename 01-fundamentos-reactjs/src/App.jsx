@@ -12,20 +12,16 @@ export function App() {
       <Header />
 
       <div className={styles.wrapper}>
-        <Sidebar/>
+        <Sidebar />
         <aside>
           sidebar
-        </aside>
-        <main>
           <Post
             author="MarcLipe"
             content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque obcaecati incidunt quam vero cupiditate saepe odio, quasi illum omnis."
           />
-
-          <Post author="Felipe Sousa"
-           content="Um novo post muito legal" 
-          />
-        </main>
+          <Post author="Felipe Sousa" content="Um novo post muito legal" />
+        </aside>
+        <main></main>
       </div>
     </div>
   );

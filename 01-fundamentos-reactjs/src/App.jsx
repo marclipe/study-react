@@ -14,7 +14,6 @@ export function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <aside>
-          sidebar
           <Post
             author="MarcLipe"
             content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque obcaecati incidunt quam vero cupiditate saepe odio, quasi illum omnis."

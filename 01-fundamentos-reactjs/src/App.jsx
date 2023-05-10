@@ -13,8 +13,9 @@ const post = [
   {
     id: 1,
     author: {
-      avatarUrl: "https://github.com/marclipe.png",
-      nome: "MarcLipe",
+      avatarUrl:
+        "https://img.freepik.com/free-vector/cute-man-working-laptop-with-coffee-cartoon-vector-icon-illustration-people-technology-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-3869.jpg?w=740&t=st=1683754315~exp=1683754915~hmac=e119a17e4a0aa1576c802b6cee450050fd5491b244be209f7e9ce9830dd9d12b",
+      name: "MarcLipe",
       role: "Full Stack Developer",
     },
     content: [
@@ -31,8 +32,9 @@ const post = [
   {
     id: 2,
     author: {
-      avatarUrl: "https://github.com/marclipe.png",
-      nome: "Marcs Felipe",
+      avatarUrl:
+        "https://img.freepik.com/free-vector/cute-man-working-laptop-with-coffee-cartoon-vector-icon-illustration-people-technology-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-3869.jpg?w=740&t=st=1683754315~exp=1683754915~hmac=e119a17e4a0aa1576c802b6cee450050fd5491b244be209f7e9ce9830dd9d12b",
+      name: "Marcos Felipe",
       role: "Front End Developer",
     },
     content: [

@@ -27,11 +27,15 @@ export function Post({ author, publishedAt, content }) {
     event.preventDefault(); 
     
     setComments([...comments, newCommentText]);
-    setNewCommentText(''); //Aqui volto o conteúdo da variá variável para i valor original
+    setNewCommentText('');
   }
 
   function handleNewCommentChange(){
     setNewCommentText(event.target.value);
+  }
+
+  function deleteComment(comment) {
+    console.log(`Deletar comentário ${comment}`)
   }
 
   return (
@@ -81,7 +85,13 @@ export function Post({ author, publishedAt, content }) {
 
       <div className={styles.commentList}>
         {comments.map(comment => {
-          return <Comment key={comment} content={comment}/>;
+          return (
+          <Comment 
+            key={comment}
+            content={comment} 
+            onDeleteComment={deleteComment}
+            />
+          );
         })}
       </div>
     </article>

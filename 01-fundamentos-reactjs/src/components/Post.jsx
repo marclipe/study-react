@@ -34,8 +34,14 @@ export function Post({ author, publishedAt, content }) {
     setNewCommentText(event.target.value);
   }
 
-  function deleteComment(comment) {
-    console.log(`Deletar comentário ${comment}`)
+  function deleteComment(commentToDelete) {
+    const commentsWithoutDeleteOne = comments.filter(comment => {
+      // Quero apenas manter os comentários que forem diferentes do comentário que eu quero deletar. 
+      return comment != commentToDelete
+    })
+
+    //Vai me gerar uma lista sem o comentário que eu deletei
+    setComments(commentsWithoutDeleteOne);
   }
 
   return (

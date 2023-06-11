@@ -1,6 +1,6 @@
 import { format, formatDistanceToNow} from 'date-fns'; 
 import ptBR from 'date-fns/locale/pt-BR'
-import { FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
 
 import { Avatar } from './Avatar';
 import { Comment } from './Comment';
@@ -13,10 +13,15 @@ interface Author {
   avatarUrl: string;
 }
 
+interface Content {
+  type: 'paragraph' | 'link'; 
+  content: string;
+}
+
 interface PostProps {
   author: Author;
-  publishedAt: Author;
-  content: Author
+  publishedAt: Date;
+  content: Content[];
 }
 
 export function Post({ author, publishedAt, content }: PostProps) {
@@ -31,7 +36,7 @@ export function Post({ author, publishedAt, content }: PostProps) {
   });
 
   const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
-    locale: ptBR, 
+    locale: ptBR,
     addSuffix: true,
   });
 
@@ -42,16 +47,16 @@ export function Post({ author, publishedAt, content }: PostProps) {
     setNewCommentText('');
   }
 
-  function handleNewCommentChange(event: FormEvent<HTMLTextAreaElement>) {
+  function handleNewCommentChange(event: ChangeEvent<HTMLTextAreaElement>) {
     event.target.setCustomValidity("");
     setNewCommentText(event.target.value);
   }
 
-  function handleNewCommentInvalid(event) {
+  function handleNewCommentInvalid(event: InvalidEvent<HTMLTextAreaElement>) {
     event.target.setCustomValidity("Este campo é obrigatório!");
   }
 
-  function deleteComment(commentToDelete) {
+  function deleteComment(commentToDelete: string) {
     const commentsWithoutDeleteOne = comments.filter(comment => {
       return comment != commentToDelete
     })

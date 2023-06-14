@@ -1,6 +1,13 @@
-/* :root {
+:root {
+    --dark-color: #0F241D;
+    --primary-color: #69B99D;
+    --second-color: #CCF4E6;
+    --background-1: #F9F9F9; 
+    --background-2: #FFFFFF;
 
-} */
+    --font-poppins: 'Poppins', sans-serif; 
+    --font-dm-sans: 'DM Sans', sans-serif;
+}
 
 * {
     margin: 0;

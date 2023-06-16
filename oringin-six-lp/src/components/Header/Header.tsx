@@ -4,7 +4,7 @@ import styles from "./Header.module.css";
 export function Header() {
     return (
       <div className={styles.header}>
-          <div className={styles.header__item}><Logo /></div>
+          <div className={styles.header__logo}><Logo /></div>
           <div className={styles.header__item}>
                 <ul className={styles.menu}>
                     <li className={styles.menu__item}>

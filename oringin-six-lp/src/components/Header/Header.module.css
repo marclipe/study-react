@@ -1,13 +1,13 @@
 .header {
     display: flex;
-    justify-content: space-around;
-    background-color:  --background-1;
+    background-color:  var(--background-1);
+    align-items: center;
+    gap: 25rem;
 } 
 
 .menu {
     list-style: none;
     display: flex;
-    align-items: end;
     gap: 2rem;
 }
 
@@ -25,4 +25,8 @@
 
 .menu__link:hover {
     color: var(--second-color);
+}
+
+.header__logo {
+    margin-left: 7.688rem;
 }

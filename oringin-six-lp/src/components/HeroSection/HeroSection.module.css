@@ -1,5 +1,7 @@
 .container__hero {
     display: flex;
+    background-color: var(--background-1);
+    padding-bottom: 10.75rem;
 }
 
 .content {

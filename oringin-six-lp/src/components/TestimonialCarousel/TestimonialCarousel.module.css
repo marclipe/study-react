@@ -1,8 +1,4 @@
 .section__testimonials {
     display: flex;
-    flex-direction: column;
-}
-
-.title__testimonials {
-
+    /* flex-direction: column; */
 }

@@ -1,0 +1,13 @@
+.section__testimonials {
+  background-color: var(--background-2);
+}
+
+.title__testimonials {
+  text-align: center;
+  padding-top: 10rem;
+  padding-bottom: 4rem;
+}
+
+.carousel__testimonials {
+  padding-bottom: 10rem;
+}

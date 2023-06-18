@@ -8,7 +8,7 @@ export function SectionTestimonials(){
           Depoimentos de quem já <br />
           passou por aqui
         </h1>
-        <div>
+        <div className={styles.carousel__testimonials}>
           <TestimonialCarousel />
         </div>
       </section>

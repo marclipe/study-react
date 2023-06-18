@@ -16,7 +16,7 @@ const settings = {
   slidesToShow: 2, /*Para ter 2 slides*/
   slidesToScroll: 1,
   autoplay: true,
-  autoplaySpeed: 1000,
+  autoplaySpeed: 2000,
   pauseOnHover: true,
   responsive: [
     {

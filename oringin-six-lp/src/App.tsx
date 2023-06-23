@@ -7,6 +7,15 @@ import { SectionTestimonials } from './components/SectionTestimonials/SectionTes
 // import styles from './App.module.css'; 
 import './global.css'
 
+import { register } from 'swiper/element';
+
+register();
+
+// Import Swiper styles
+import 'swiper/css';
+import "swiper/css/pagination";
+import 'swiper/css/navigation';
+import 'swiper/css/scrollbar';
 
 export function App() {
   return (
@@ -14,7 +23,7 @@ export function App() {
       <Header />
       <HeroSection />
       <AboutUs />
-      <SectionServices/>
+      <SectionServices />
       <SectionTestimonials/>
     </>
   );

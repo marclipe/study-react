@@ -1,4 +1,36 @@
 .title {
   text-align: center;
+  color: var(--dark-color, #0F241D);
+  font-size: 36px;
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  margin-bottom: 4rem;
+}
+
+.container__slider {
+  margin: 0 7.688rem 0;
+}
+
+.container__slide {
+  width: 544px;
+
+  margin-bottom: 4.25rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 52px;
+
+  gap: 24px;
+
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.08);
+}
+
+.slide__item {
+  display: flex;
+  align-items: center;
 }
 

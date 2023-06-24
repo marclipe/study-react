@@ -8,6 +8,8 @@
 
     --font-poppins: 'Poppins', sans-serif; 
     --font-dm-sans: 'DM Sans', sans-serif;
+
+    --swiper-theme-color: #69B99D !important;
 }
 
 * {
@@ -16,4 +18,12 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+}
+
+.swiper-slide {
+  width: 375px !important;
+}
+
+.swiper {
+    margin: 0 !important;
 }

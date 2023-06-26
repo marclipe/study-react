@@ -1,0 +1,7 @@
+.container {
+  background-color: purple;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16.75rem;
+}
+

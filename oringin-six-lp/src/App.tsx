@@ -17,6 +17,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import "swiper/css";
 import "swiper/css/effect-fade";
+import { SectionContact } from './components/SectionContact/SectionContact';
 
 export function App() {
   return (
@@ -26,6 +27,7 @@ export function App() {
       <AboutUs />
       <SectionServices />
       <SectionTestimonials/>
+      <SectionContact/>
     </>
   );
 }

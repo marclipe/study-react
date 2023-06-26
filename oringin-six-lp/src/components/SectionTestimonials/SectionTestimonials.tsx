@@ -35,7 +35,7 @@ export function SectionTestimonials() {
   }, []);
 
   return (
-    <>
+    <div className={styles.container__section}>
       <h1 className={styles.title}>
         Depoimentos de quem já <br /> passou por aqui
       </h1>
@@ -62,6 +62,6 @@ export function SectionTestimonials() {
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </div>
   );
 }

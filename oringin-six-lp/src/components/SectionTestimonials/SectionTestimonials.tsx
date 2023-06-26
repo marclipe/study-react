@@ -1,18 +1,38 @@
 import styles from '../SectionTestimonials/SectionTestimonials.module.css'
-
+import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import perfilOne from '../../assets/images/perfil-one.png'
+import perfilOne from '../../assets/images/perfil-one.png';
+import perfilTwo from '../../assets/images/perfile-two.png';
 
 import { Pagination } from 'swiper';
 
 export function SectionTestimonials() {
+  const [slidePerView, setSlidePerView] = useState(2);
 
   const slides = [
     { id: '1', description: "Eu sou cliente do Beautysalon há 5 anos e não troco por nada! Certamente meu cabelo mudou muito depois que comecei a tratar somente com produtos naturais e veganos. São profissionais incríveis e qualificados.", name: "Wanessa Souza", image: perfilOne },
-    { id: '2', description: "Eu sou cliente do Beautysalon há 5 anos e não troco por nada! Certamente meu cabelo mudou muito depois que comecei a tratar somente com produtos naturais e veganos. São profissionais incríveis e qualificados.", name: "Wanessa Souza", image: perfilOne },
+    { id: '2', description: "Minha mãe frequenta o salão há anos e me levou um dia para conhecer. Minha experiência foi incrível, eu continuo fazendo o a terapia capilar e isso salvou o meu cabelo. Adoro todos os profissionais do Beautysalon.", name: "Luna Falcão", image: perfilTwo },
     { id: '3', description: "Eu sou cliente do Beautysalon há 5 anos e não troco por nada! Certamente meu cabelo mudou muito depois que comecei a tratar somente com produtos naturais e veganos. São profissionais incríveis e qualificados.", name: "Wanessa Souza", image: perfilOne},
   ];
+
+  useEffect(() => {
+    function handleResize() {
+      if(window.innerWidth < 600) {
+        setSlidePerView(1); 
+      } else {
+        setSlidePerView(2);
+      }
+    }
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, []);
 
   return (
     <>
@@ -21,22 +41,10 @@ export function SectionTestimonials() {
       </h1>
 
       <Swiper
-        slidesPerView={2}
+        slidesPerView={slidePerView}
         pagination={{ clickable: true }}
-        modules={[Pagination]}
-
-        breakpoints={{
-          // when window width is >= 640px
-          640: {
-            slidesPerView: 1,
-            // spaceBetween: 20
-          },
-          // when window width is >= 768px
-          768: {
-            slidesPerView: 2,
-            // spaceBetween: 40
-          },
-        }}
+        modules={[ Pagination ]}
+        autoplay={{ delay: 1000 }}
       >
         {slides.map((item) => (
           <SwiperSlide className={styles.container__slider} key={item.id}>

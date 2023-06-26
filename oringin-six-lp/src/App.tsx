@@ -12,10 +12,11 @@ import { register } from 'swiper/element';
 register();
 
 // Import Swiper styles
-import 'swiper/css';
-import "swiper/css/pagination";
+import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
+import "swiper/css";
+import "swiper/css/effect-fade";
 
 export function App() {
   return (

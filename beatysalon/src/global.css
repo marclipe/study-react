@@ -1,0 +1,29 @@
+:root {
+    --dark-color: #0F241D;
+    --primary-color: #69B99D;
+    --second-color: #CCF4E6;
+    --background-1: #F9F9F9; 
+    --background-2: #FFFFFF;
+    --color-text: #767676;
+
+    --font-poppins: 'Poppins', sans-serif; 
+    --font-dm-sans: 'DM Sans', sans-serif;
+
+    --swiper-theme-color: #69B99D !important;
+}
+
+* {
+    border: 1px solid red;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.swiper-slide {
+  width: 375px !important;
+}
+
+.swiper {
+    margin: 0 !important;
+}

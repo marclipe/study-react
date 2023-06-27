@@ -1,0 +1,39 @@
+.service_card {
+    width: 22rem;
+    height: 22rem;
+    background-color: var(--background-1);
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+    border-bottom: 4px solid var(--primary-color);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.image__card {
+    padding-bottom: 1.5rem;
+}
+
+.title__card {
+	font-family: var(--font-poppins);
+	font-style: normal;
+	font-weight: 700;
+	font-size: 1.5rem;
+	line-height: 2.25rem;
+	color: var(--dark-color);
+    text-align: center;
+    padding-bottom: 0.75rem;
+}
+
+.description__card {
+	font-family: var(--font-dm-sans);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1rem;
+	line-height: 1.313rem;
+    text-align: center;
+
+    color: var(--color-text);
+    padding: 0 1.5rem 3rem;
+}

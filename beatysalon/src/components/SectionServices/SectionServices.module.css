@@ -1,0 +1,42 @@
+.section {
+    background-color: var(--background-1);
+		display: flex;
+		flex-direction: column;
+		padding-top: 10rem;
+}
+
+strong {
+	color: var(--primary-color);
+}
+
+.title__services {
+	font-family: var(--font-poppins);
+	font-style: normal;
+	font-size: 2.25rem;
+	font-weight: 700;
+	line-height: 3.375rem;
+	color: var(--dark-color);
+	text-align: center;
+	padding-bottom: 0.75rem;
+}
+
+.subscription__services {
+	font-family: var(--font-dm-sans);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.125rem;
+	line-height: 1.438rem;
+	color: var(--dark-color);
+	text-align: center;
+	padding-bottom: 4rem;
+}
+
+.services__card {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+	padding-bottom: 10rem;
+}
+
+

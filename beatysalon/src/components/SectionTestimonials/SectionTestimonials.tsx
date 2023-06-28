@@ -43,13 +43,16 @@ export function SectionTestimonials() {
       <Swiper
         slidesPerView={slidePerView}
         pagination={{ clickable: true }}
-        modules={[ Pagination ]}
+        modules={[Pagination]}
         autoplay={{ delay: 1000 }}
       >
         {slides.map((item) => (
           <SwiperSlide className={styles.container__slider} key={item.id}>
             <div className={styles.container__slide}>
-              <p className={styles.description}>{item.description}</p>
+              <p className={styles.description}>
+                <span className={styles.quotes}>"</span>
+                {item.description}
+              </p>
               <div className={styles.slide__item}>
                 <img
                   src={item.image}

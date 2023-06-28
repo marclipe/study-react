@@ -18,6 +18,7 @@ import 'swiper/css/scrollbar';
 import "swiper/css";
 import "swiper/css/effect-fade";
 import { SectionContact } from './components/SectionContact/SectionContact';
+import { Footer } from './components/Footer/Footer';
 
 export function App() {
   return (
@@ -28,6 +29,7 @@ export function App() {
       <SectionServices />
       <SectionTestimonials/>
       <SectionContact/>
+      <Footer/>
     </>
   );
 }

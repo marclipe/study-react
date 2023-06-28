@@ -1,0 +1,31 @@
+.footer {
+    background-color: rgba(128, 0, 128, 0.5);
+    background-color: var(--primary-color);
+    display: flex;
+    padding: 3.813rem 7.625rem 3.75rem 7.688rem;
+    gap: 45.983rem;
+}
+
+.footer__itemTwo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer__image {
+  padding-bottom: 2.125rem;
+}
+
+.footer__text_name {
+  font-family: var(--font-dm-sans);
+  font-size: 1rem;
+  color: var(--background-1);
+  padding-bottom: 0.75rem;
+}
+
+.footer__text {
+  font-family: var(--font-dm-sans);
+  font-size: 1rem;
+  color: var(--background-1);
+}

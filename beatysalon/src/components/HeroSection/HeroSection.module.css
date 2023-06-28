@@ -67,3 +67,20 @@
     position: relative;
     z-index: 1;
 }
+
+
+@media screen and (max-width: 768px) {
+  .container__hero {
+    display: flex;
+    flex-direction: column-reverse;
+    padding-bottom: 10.75rem;
+  }
+
+  /* .photoHero {
+    width: 100%;
+  }
+
+  .background  {
+    width: 100%;
+  } */
+}

@@ -38,3 +38,10 @@
 .section__itemTwo {
     margin-top: 12.125rem;
 } 
+
+@media screen and (max-width: 768px) {
+    .section {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}

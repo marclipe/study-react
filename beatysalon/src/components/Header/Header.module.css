@@ -3,11 +3,13 @@
     background-color:  var(--background-1);
     align-items: center;
     gap: 25rem;
+    flex-direction: row;
 } 
 
 .menu {
     list-style: none;
-    display: flex;
+    display: inline-flex;
+    /* align-items: flex-end; */
     gap: 2rem;
 }
 

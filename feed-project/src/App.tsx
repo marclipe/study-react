@@ -5,11 +5,21 @@ import { Post } from "./components/Post";
 import styles from './App.module.css'
 import './global.css'
 
-//author: {avartar_url: "", name: "", role: ""}
-//publishedAt: Date
-//content: string
+interface Content {
+  type: "link" | "paragraph";
+  content: string;
+}
 
-const post = [
+const post: {
+  id: number;
+  author: {
+    avatarUrl: string;
+    name: string;
+    role: string;
+  };
+  content: Content[];
+  publishedAt: Date;
+}[] = [
   {
     id: 1,
     author: {

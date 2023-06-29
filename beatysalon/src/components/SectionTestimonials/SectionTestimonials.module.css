@@ -12,7 +12,7 @@
   margin-bottom: 4rem;
 }
 
-.container__slider {
+.container__swiper {
   margin: 0 7.688rem 0;
 }
 
@@ -60,4 +60,25 @@
   font-size: 30px;
   font-family: 'Georgia', serif;
   line-height: 1.75rem;
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    text-align: left;
+    padding-left: 1.5rem;
+    font-size: 1.875rem;
+  }
+
+  .container__slide {
+    width: 327px;
+    padding: 32px;
+
+
+    display: flex;
+
+  }
+
+  .description {
+    font-size: 1rem;
+  }
 }

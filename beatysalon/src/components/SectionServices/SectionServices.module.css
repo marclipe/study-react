@@ -1,17 +1,22 @@
 .section {
-    background-color: var(--background-1);
-		display: flex;
-		flex-direction: column;
-		padding-top: 10rem;
+	background-color: var(--background-1);
+	display: flex;
+	flex-direction: column;
+	padding-top: 10rem;
 }
 
 strong {
 	color: var(--primary-color);
 }
 
+.services__content {
+	display: flex;
+	flex-direction: column;
+}
+
 .title__services {
 	font-family: var(--font-poppins);
-	font-style: normal;
+	font-style: 700;
 	font-size: 2.25rem;
 	font-weight: 700;
 	line-height: 3.375rem;
@@ -39,4 +44,25 @@ strong {
 	padding-bottom: 10rem;
 }
 
+@media screen and (max-width: 768px) {
+	.section {
+		padding-top: 5rem;
+	}
 
+	.services__card {
+		display: flex;
+		flex-direction: column;
+		padding-bottom: 5rem;
+	} 
+
+	.title__services {
+		text-align: left;
+		padding-left: 1.5rem;
+	}
+
+	.subscription__services {
+		font-size: 1rem;
+		padding: 0 1.5rem 4rem;
+		text-align: left;
+	}
+}

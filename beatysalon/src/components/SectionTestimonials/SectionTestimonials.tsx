@@ -8,7 +8,7 @@ import perfilTwo from '../../assets/images/perfile-two.png';
 import { Pagination } from 'swiper';
 
 export function SectionTestimonials() {
-  const [slidePerView, setSlidePerView] = useState(2);
+  const [slidePerView, setSlidePerView] = useState(0);
 
   const slides = [
     { id: '1', description: "Eu sou cliente do Beautysalon há 5 anos e não troco por nada! Certamente meu cabelo mudou muito depois que comecei a tratar somente com produtos naturais e veganos. São profissionais incríveis e qualificados.", name: "Wanessa Souza", image: perfilOne },
@@ -19,7 +19,7 @@ export function SectionTestimonials() {
   useEffect(() => {
     function handleResize() {
       if(window.innerWidth < 600) {
-        setSlidePerView(1); 
+        setSlidePerView(2); 
       } else {
         setSlidePerView(2);
       }
@@ -47,7 +47,7 @@ export function SectionTestimonials() {
         autoplay={{ delay: 1000 }}
       >
         {slides.map((item) => (
-          <SwiperSlide className={styles.container__slider} key={item.id}>
+          <SwiperSlide className={styles.container__swiper} key={item.id}>
             <div className={styles.container__slide}>
               <p className={styles.description}>
                 <span className={styles.quotes}>"</span>

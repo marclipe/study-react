@@ -5,27 +5,26 @@
 }
 
 .title {
-    font-family: var(--font-poppins);
-    font-style: normal;
-    font-weight: 700;
-    font-size: 2.25rem;
-    line-height: 3.375rem;
-    color: var(--dark-color);
-    padding-bottom: 0.75rem;
+	font-family: var(--font-poppins);
+	font-style: normal;
+	font-weight: 700;
+	font-size: 2.25rem;
+	line-height: 3.375rem;
+	color: var(--dark-color);
+	padding-bottom: 0.75rem;
 }
 
 .text {
-    font-family: var(--font-dm-sans);
-    color: var(--color-text);
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    padding-bottom: 0.75rem;
+	font-family: var(--font-dm-sans);
+	color: var(--color-text);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	padding-bottom: 0.75rem;
 }
 
 .image_aboutus {
-    /* width: 100%; */
     padding-bottom: 10rem;
 }
 
@@ -40,8 +39,21 @@
 } 
 
 @media screen and (max-width: 768px) {
-    .section {
-        display: flex;
-        flex-direction: column-reverse;
-    }
+	.section {
+			display: flex;
+			flex-direction: column-reverse;
+	}
+
+	.image_aboutus {
+			width: 100%;
+			padding-bottom: 0;
+	}
+
+	.section__itemOne {
+		margin: 2rem 1.5rem 5rem;
+	}
+
+	.section__itemTwo {
+			margin-top: 6.313rem;
+	}
 }

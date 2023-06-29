@@ -73,14 +73,44 @@
   .container__hero {
     display: flex;
     flex-direction: column-reverse;
-    padding-bottom: 10.75rem;
+    padding-bottom: 5rem;
   }
 
-  /* .photoHero {
+  .title__hero {
+    font-size: 1.875rem;
+    line-height: normal;
+  }
+
+  .text__hero {
+    font-size: 1rem;
+    line-height: normal;
+  }
+
+  .photoHero {
     width: 100%;
+    /* height: 224.323px; */
+    margin-left: -3.625rem;
+    margin-top: 4.5rem;
   }
 
   .background  {
     width: 100%;
-  } */
+    height: 242.269px;
+    margin-top: 0;
+    margin-left: 3.188rem;
+  }
+  
+  .backgrounds {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content {
+    margin: 2rem 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  } 
 }

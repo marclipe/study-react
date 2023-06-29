@@ -5,7 +5,7 @@ import mailIcon from '../../assets/icons/mail.svg';
 import { WhatsappLogo } from '@phosphor-icons/react';
 
 const contacts = [
-  { id: "1", image: whatsAppIcon, info: " Entrar em contato" },
+  { id: "1", image: whatsAppIcon, info: " 11 99845-6754" },
   { id: "2", image: mapIcon, info: "R. Amauri Souza, 346" },
   { id: "3", image: mailIcon, info: "contato@beautysalon.com" },
 ];

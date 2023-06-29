@@ -8,12 +8,11 @@ import cosmetic from '../../assets/icons/cosmetic.svg'
 export function SectionServices() {
     return (
       <section className={styles.section}>
-        <div>
+        <div className={styles.services__content}>
           <h1 className={styles.title__services}>Serviços</h1>
           <p className={styles.subscription__services}>
             Com mais de 10 anos no mercado, o <strong>Beautysalon</strong> já
-            <br />
-            conquistou clientes de inúmeros países com seus tratamentos <br />
+            conquistou clientes de inúmeros países com seus tratamentos
             exclusivos e totalmente naturais
           </p>
         </div>

@@ -49,6 +49,11 @@
     align-items: center;
 }
 
+.button__schedule:hover {
+    background-color: #5a9d8f;
+    color: var(--background-2);
+}
+
 
 .background {
     position: absolute;

@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import perfilOne from '../../assets/images/perfil-one.png';
 import perfilTwo from '../../assets/images/perfil-two.png';
+import perfilThree from '../../assets/images/perfil-three.png';
 
 import { Pagination } from 'swiper';
 
@@ -13,7 +14,7 @@ export function SectionTestimonials() {
   const slides = [
     { id: '1', description: "Eu sou cliente do Beautysalon há 5 anos e não troco por nada! Certamente meu cabelo mudou muito depois que comecei a tratar somente com produtos naturais e veganos. São profissionais incríveis e qualificados.", name: "Wanessa Souza", image: perfilOne },
     { id: '2', description: "Minha mãe frequenta o salão há anos e me levou um dia para conhecer. Minha experiência foi incrível, eu continuo fazendo o a terapia capilar e isso salvou o meu cabelo. Adoro todos os profissionais do Beautysalon.", name: "Luna Falcão", image: perfilTwo },
-    { id: '3', description: "Eu sou cliente do Beautysalon há 5 anos e não troco por nada! Certamente meu cabelo mudou muito depois que comecei a tratar somente com produtos naturais e veganos. São profissionais incríveis e qualificados.", name: "Wanessa Souza", image: perfilOne},
+    { id: '3', description: "Eu sou cliente da Beautysalon há 2 anos e não troco por nada! Certamente minha calvície mudou muito depois que comecei a tratar somente com um método revolucionário e eficaz. Os resultados foram surpreendentes e estou extremamente satisfeito com minha nova aparência.", name: "Peter Miles", image: perfilThree},
   ];
 
   useEffect(() => {

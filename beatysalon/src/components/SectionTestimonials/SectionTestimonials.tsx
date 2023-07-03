@@ -35,7 +35,7 @@ export function SectionTestimonials() {
   }, []);
 
   return (
-    <div className={styles.container__section}>
+    <div id="testimonials" className={styles.container__section}>
       <h1 className={styles.title}>
         Depoimentos de quem já <br /> passou por aqui
       </h1>
@@ -44,7 +44,7 @@ export function SectionTestimonials() {
         slidesPerView={slidePerView}
         pagination={{ clickable: true }}
         modules={[Pagination]}
-        autoplay={{ delay: 1000 }}
+        autoplay={{ delay: 3000 }}
       >
         {slides.map((item) => (
           <SwiperSlide className={styles.container__swiper} key={item.id}>

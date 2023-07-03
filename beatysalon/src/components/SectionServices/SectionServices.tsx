@@ -7,7 +7,7 @@ import cosmetic from '../../assets/icons/cosmetic.svg'
 
 export function SectionServices() {
     return (
-      <section className={styles.section}>
+      <section id="services" className={styles.section}>
         <div className={styles.services__content}>
           <h1 className={styles.title__services}>Serviços</h1>
           <p className={styles.subscription__services}>

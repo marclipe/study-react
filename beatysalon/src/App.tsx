@@ -4,7 +4,6 @@ import { HeroSection } from './components/HeroSection/HeroSection'
 import { SectionServices } from './components/SectionServices/SectionServices';
 import { SectionTestimonials } from './components/SectionTestimonials/SectionTestimonials';
 
-// import styles from './App.module.css'; 
 import './global.css'
 
 import { register } from 'swiper/element';
@@ -13,7 +12,6 @@ register();
 
 import styles from '../src/App.module.css';
 
-// Import Swiper styles
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';

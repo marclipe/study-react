@@ -46,27 +46,27 @@ export function Header() {
             <div>
               <ul className={styles.menu}>
                 <li className={styles.menu__item}>
-                  <a className={styles.menu__link} href="#">
+                  <a className={styles.menu__link} href="#home">
                     Início
                   </a>
                 </li>
                 <li className={styles.menu__item}>
-                  <a className={styles.menu__link} href="#">
+                  <a className={styles.menu__link} href="#about">
                     Sobre
                   </a>
                 </li>
                 <li className={styles.menu__item}>
-                  <a className={styles.menu__link} href="#">
+                  <a className={styles.menu__link} href="#services">
                     Serviços
                   </a>
                 </li>
                 <li className={styles.menu__item}>
-                  <a className={styles.menu__link} href="#">
+                  <a className={styles.menu__link} href="#testimonials">
                     Depoimentos
                   </a>
                 </li>
                 <li className={styles.menu__item}>
-                  <a className={styles.menu__link} href="#">
+                  <a className={styles.menu__link} href="#contact">
                     Contato
                   </a>
                 </li>
@@ -78,27 +78,27 @@ export function Header() {
           <div>
             <ul className={styles.menu}>
               <li className={styles.menu__item}>
-                <a className={styles.menu__link} href="#">
+                <a className={styles.menu__link} href="#home">
                   Início
                 </a>
               </li>
               <li className={styles.menu__item}>
-                <a className={styles.menu__link} href="#">
+                <a className={styles.menu__link} href="#about">
                   Sobre
                 </a>
               </li>
               <li className={styles.menu__item}>
-                <a className={styles.menu__link} href="#">
+                <a className={styles.menu__link} href="#services">
                   Serviços
                 </a>
               </li>
               <li className={styles.menu__item}>
-                <a className={styles.menu__link} href="#">
+                <a className={styles.menu__link} href="#testimonials">
                   Depoimentos
                 </a>
               </li>
               <li className={styles.menu__item}>
-                <a className={styles.menu__link} href="#">
+                <a href="#contact" className={styles.menu__link}>
                   Contato
                 </a>
               </li>

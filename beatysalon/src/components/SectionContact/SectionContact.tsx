@@ -1,4 +1,4 @@
-import styles from '../SectionContact/SectionContact.module.css';
+import styles from './SectionContact.module.css';
 import whatsAppIcon from '../../assets/icons/whatsapp.svg';
 import mapIcon from '../../assets/icons/map-pin.svg';
 import mailIcon from '../../assets/icons/mail.svg';
@@ -12,7 +12,7 @@ const contacts = [
 
 export function SectionContact(){
   return (
-    <section className={styles.container}>
+    <section id="contact" className={styles.container}>
       <div className={styles.item__containerOne}>
         <h1 className={styles.title__contact}>
           Entre em contato <br /> com a gente!

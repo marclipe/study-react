@@ -3,7 +3,7 @@ import AboutUsImage from '../../assets/images/image-section_about-us.png'
 
 export function AboutUs(){
     return (
-        <section className={styles.section}>
+        <section id='about' className={styles.section}>
             <div className={styles.section__itemOne}>
                 <h1 className={styles.title}>Sobre nós</h1>
                 <p className={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sagittis arcu quis nisi luctus, id accumsan felis tristique. Proin quis bibendum diam. Sed consequat nisl laoreet eros ultricies pellentesque. Nullam in est porta, pellentesque massa vitae, vehicula risus. </p>

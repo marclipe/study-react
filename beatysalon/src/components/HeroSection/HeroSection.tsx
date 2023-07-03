@@ -3,7 +3,7 @@ import styles from "./HeroSection.module.css";
 
 export function HeroSection() {
     return (
-      <section className={styles.container__hero}>
+      <section id="home" className={styles.container__hero}>
         <div className={styles.content}>
             <h1 className={styles.title__hero}>Saúde natural para<br /> os seus cabelos</h1>
             <p className={styles.text__hero}>Um salão exclusivo em São Paulo,<br />especializado em tratamentos naturais.</p>

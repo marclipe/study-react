@@ -12,12 +12,6 @@
   margin-bottom: 4rem;
 }
 
-/* .container__swiper {
-  margin: 0 7.688rem 0;
-  display: flex;
-  justify-content: center;
-} */
-
 .container__carousel {
   display: grid;
   place-items: center;
@@ -70,10 +64,6 @@
   line-height: 1.75rem;
 }
 
-/* .swiper-slide {
-  width: 375px;
-} */
-
 @media screen and (max-width: 768px) {
   .title {
     text-align: left;
@@ -94,9 +84,5 @@
     margin: 0;
     display: flex;
     justify-content: center;
-  }
-  
-  .swiper-slide {
-    
   }
 }

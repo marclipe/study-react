@@ -13,18 +13,9 @@
 }
 
 * {
-	border: 1px solid red;
+	/* border: 1px solid red; */
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	text-decoration: none;
 }
-
-.swiper-slide {
-  width: 375px !important;
-}
-
-.swiper {
-  margin: 0 !important;
-}
-

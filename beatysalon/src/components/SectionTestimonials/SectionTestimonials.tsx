@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import perfilOne from '../../assets/images/perfil-one.png';
-import perfilTwo from '../../assets/images/perfile-two.png';
+import perfilTwo from '../../assets/images/perfil-two.png';
 
 import { Pagination } from 'swiper';
 
 export function SectionTestimonials() {
-  const [slidePerView, setSlidePerView] = useState(0);
+  const [slidePerView, setSlidePerView] = useState(1);
 
   const slides = [
     { id: '1', description: "Eu sou cliente do Beautysalon há 5 anos e não troco por nada! Certamente meu cabelo mudou muito depois que comecei a tratar somente com produtos naturais e veganos. São profissionais incríveis e qualificados.", name: "Wanessa Souza", image: perfilOne },
@@ -19,9 +19,9 @@ export function SectionTestimonials() {
   useEffect(() => {
     function handleResize() {
       if(window.innerWidth < 600) {
-        setSlidePerView(2); 
+        setSlidePerView(1); 
       } else {
-        setSlidePerView(2);
+        setSlidePerView(1);
       }
     }
 
@@ -48,18 +48,20 @@ export function SectionTestimonials() {
       >
         {slides.map((item) => (
           <SwiperSlide className={styles.container__swiper} key={item.id}>
-            <div className={styles.container__slide}>
-              <p className={styles.description}>
-                <span className={styles.quotes}>"</span>
-                {item.description}
-              </p>
-              <div className={styles.slide__item}>
-                <img
-                  src={item.image}
-                  alt={item.description}
-                  className={styles.slide__image}
-                />
-                <p className={styles.name}>{item.name}</p>
+            <div className={styles.container__carousel}>
+              <div className={styles.container__slide}>
+                <p className={styles.description}>
+                  <span className={styles.quotes}>"</span>
+                  {item.description}
+                </p>
+                <div className={styles.slide__item}>
+                  <img
+                    src={item.image}
+                    alt={item.description}
+                    className={styles.slide__image}
+                  />
+                  <p className={styles.name}>{item.name}</p>
+                </div>
               </div>
             </div>
           </SwiperSlide>

@@ -24,10 +24,9 @@ export const FormContainer = styled.div`
   gap: 0.5rem;
   color: ${(props) => props.theme['gray-100']};
   font-size: 1.125rem;
-  font-weight: 600;
+  font-weight: bold;
   flex-wrap: wrap;
 `
-// Um input base para criar outros inputs
 const BaseInput = styled.input`
   background-color: transparent;
   height: 2.5rem;
@@ -102,7 +101,6 @@ export const StartCountdownButton = styled.button`
   background-color: ${(props) => props.theme['green-500']};
   color: ${(props) => props.theme['gray-100']};
 
-  //Se estiver desabilitado
   &:disabled {
     opacity: 0.7;
     cursor: not-allowed;

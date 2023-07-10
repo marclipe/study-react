@@ -21,18 +21,18 @@ export const HistoryList = styled.div`
   table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 600px; //quando ele estiver em tamanho menor ele gere o scroll
+    min-width: 600px;
 
     th {
       background-color: ${(props) => props.theme['gray-600']};
       padding: 1rem;
-      text-align: left; //por padrão vem como center
+      text-align: left;
       color: ${(props) => props.theme['gray-100']};
       font-size: 0.875rem;
-      line-height: 1.6; //160%
+      line-height: 1.6;
 
       &:first-child {
-        border-top-left-radius: 8px; //para arredondar no cantinho
+        border-top-left-radius: 8px;
         padding-left: 1.5rem;
       }
 
@@ -50,7 +50,7 @@ export const HistoryList = styled.div`
       line-height: 1.6;
 
       &:first-child {
-        width: 50%; //Para o primeiro td ocupar mais espaço que os outros
+        width: 50%;
         padding-left: 1.5rem;
       }
 
@@ -58,5 +58,30 @@ export const HistoryList = styled.div`
         padding-right: 1.5rem;
       }
     }
+  }
+`
+// Vou fazer um mapeamento das cores para um rgb
+const STATUS_COLORS = {
+  yellow: 'yellow-500',
+  green: 'green-500',
+  red: 'red-500',
+}
+
+interface StatusProps {
+  statusColor: keyof typeof STATUS_COLORS
+}
+
+// Agora meu Status recebe as props usando meu generic do typescript
+export const Status = styled.span<StatusProps>`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &::before {
+    content: ''; //sempre preciso para aparecer em tela
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px; //Ou 50% para ficar totalmente arredondado
+    background: ${(props) => props.theme[STATUS_COLORS[props.statusColor]]};
   }
 `

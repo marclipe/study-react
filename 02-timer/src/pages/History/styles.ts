@@ -78,10 +78,10 @@ export const Status = styled.span<StatusProps>`
   gap: 0.5rem;
 
   &::before {
-    content: ''; //sempre preciso para aparecer em tela
+    content: '';
     width: 0.5rem;
     height: 0.5rem;
-    border-radius: 9999px; //Ou 50% para ficar totalmente arredondado
+    border-radius: 9999px;
     background: ${(props) => props.theme[STATUS_COLORS[props.statusColor]]};
   }
 `

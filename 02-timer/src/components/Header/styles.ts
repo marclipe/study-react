@@ -20,7 +20,6 @@ export const HeaderContainer = styled.header`
 
     color: ${(props) => props.theme['gray-100']};
 
-    /*Para não ter problemas de borda*/
     border-top: 3px solid transparent;
     border-bottom: 3px solid transparent;
     &:hover {

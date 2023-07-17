@@ -1,5 +1,7 @@
 import { Play } from 'phosphor-react'
 import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as zod from 'zod'
 
 import {
   CountdownContainer,
@@ -11,20 +13,29 @@ import {
   TaskInput,
 } from './styles'
 
-// controlled / uncontrolled
+// Uso meus dois campos que quero validar
+const newCycleFormValidationSchema = zod.object({
+  // No mínimo 1 caractere
+  task: zod.string().min(1, 'Informe a tarefa'),
+  // Vai ser um número, o mínimo dele é 5 e máximo é 60
+  minutesAmount: zod
+    .number()
+    .min(5, 'O ciclo precisa ser de no mínimo 5 minutos')
+    .max(60, 'O ciclo precisa ser de no máximo 60 minutos'),
+})
 
 export function Home() {
-  const { register, handleSubmit, watch } = useForm()
+  const { register, handleSubmit, watch } = useForm({
+    // Passo meu esquema de validação para o zodResolver
+    resolver: zodResolver(newCycleFormValidationSchema),
+  })
 
   // data - dados de input do nosso formulário
   function handleCreateNewCycle(data: any) {
     console.log(data)
   }
 
-  // Eu quero observar o campo task, e saber o valor em tempo real
-  // Se o campo de task for vazio eu quero desabilitar o botão
-  const task = watch('task')
-  // O submit desse formulário vai estar desabilitado quando não tenho nada dentro da minha task
+  const task = watch('task') // Controlled Component
   const isSubmitDisabled = !task
 
   return (

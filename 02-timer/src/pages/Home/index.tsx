@@ -23,7 +23,7 @@ const newCycleFormValidationSchema = zod.object({
 
 export function Home() {
   // eslint-disable-next-line no-use-before-define
-  const { register, handleSubmit, watch } = useForm<NewCycleFormData>({
+  const { register, handleSubmit, watch, reset } = useForm<NewCycleFormData>({
     resolver: zodResolver(newCycleFormValidationSchema),
     defaultValues: {
       task: '',
@@ -31,11 +31,11 @@ export function Home() {
     },
   })
 
-  // Eu estou inferindo = automatizando o processo de fazer alguma coisa
   type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
 
   function handleCreateNewCycle(data: NewCycleFormData) {
     console.log(data)
+    reset()
   }
 
   const task = watch('task') // Controlled Component

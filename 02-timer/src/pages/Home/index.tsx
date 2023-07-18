@@ -13,11 +13,8 @@ import {
   TaskInput,
 } from './styles'
 
-// Uso meus dois campos que quero validar
 const newCycleFormValidationSchema = zod.object({
-  // No mínimo 1 caractere
   task: zod.string().min(1, 'Informe a tarefa'),
-  // Vai ser um número, o mínimo dele é 5 e máximo é 60
   minutesAmount: zod
     .number()
     .min(5, 'O ciclo precisa ser de no mínimo 5 minutos')
@@ -25,13 +22,19 @@ const newCycleFormValidationSchema = zod.object({
 })
 
 export function Home() {
-  const { register, handleSubmit, watch } = useForm({
-    // Passo meu esquema de validação para o zodResolver
+  // eslint-disable-next-line no-use-before-define
+  const { register, handleSubmit, watch } = useForm<NewCycleFormData>({
     resolver: zodResolver(newCycleFormValidationSchema),
+    defaultValues: {
+      task: '',
+      minutesAmount: 0,
+    },
   })
 
-  // data - dados de input do nosso formulário
-  function handleCreateNewCycle(data: any) {
+  // Eu estou inferindo = automatizando o processo de fazer alguma coisa
+  type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
+
+  function handleCreateNewCycle(data: NewCycleFormData) {
     console.log(data)
   }
 

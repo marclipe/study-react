@@ -22,19 +22,17 @@ const newCycleFormValidationSchema = zod.object({
     .max(60, 'O ciclo precisa ser de no máximo 60 minutos'),
 })
 
-// Para definir o formato dos ciclos
 interface Cycle {
-  // Preciso de um id para representar unicamente um ciclo
   id: string
-  task: string // um ciclo tem um tarefa
-  minutesAmount: number // quant.. de minutos
+  task: string
+  minutesAmount: number
 }
 
 export function Home() {
-  // Vamos usar estado, para armazenar um novo ciclo no nosso component
-  const [cycles, setCycles] = useState<Cycle[]>([]) // Vou armazenar uma lista de ciclos no meu estado, um array de ciclos
-  // Vamos usar um estado para indicar se o ciclo está ativo ou não
+  const [cycles, setCycles] = useState<Cycle[]>([])
   const [aciveCycleId, setAciveCycleId] = useState<string | null>(null)
+  // Vou armazenar o tanto de segundos desde que o ciclo tá ativo
+  const [amountSecondPassed, setAmountSecondPassed] = useState(0)
 
   // eslint-disable-next-line no-use-before-define
   const { register, handleSubmit, watch, reset } = useForm<NewCycleFormData>({
@@ -48,26 +46,39 @@ export function Home() {
   type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
 
   function handleCreateNewCycle(data: NewCycleFormData) {
-    // Crio uma variável para facilitar o uso do id
     const id = String(new Date().getTime())
 
     const newCycle: Cycle = {
-      id, // Vai pegar a data atual em milissegundos, a gente converte ese id para uma string
+      id,
       task: data.task,
       minutesAmount: data.minutesAmount,
     }
 
-    // Preciso copiar todos os ciclos que já tenho
     setCycles((state) => [...state, newCycle])
-    setAciveCycleId(id) // seto o novo ciclo ativo
+    setAciveCycleId(id)
 
     reset()
   }
 
-  // Crio uma variável, para retornar o mesmo id do ciclo ativo
-  // ela vai percorrer o Array e vai encontrar o id que seja igual ao id do ciclo ativo
   const activeCycle = cycles.find((cycles) => cycles.id === aciveCycleId)
-  console.log(activeCycle)
+  // console.log(activeCycle)
+
+  // Tenho que lembrar que o meu ciclo tá ativo ou não
+  // Se o meu ciclo tiver ativo eu multiplico por 60 se não essa variável vai ser zero
+  const totalSeconds = activeCycle ? activeCycle.minutesAmount * 60 : 0
+  // Se eu tiver um ciclo ativo total segundos menos os segundos já passados, se não vai ser zero
+  const currentSeconds = activeCycle ? totalSeconds - amountSecondPassed : 0
+
+  // Total de minutos que vou ter
+  // Math.floor para arrendondar para baixo
+  const minutesAmount = Math.floor(currentSeconds / 60)
+
+  // Agora calculo quantos segundos eu tenho do resto desa divisão
+  const secondsAmount = currentSeconds % 60 // Quantos segundos sobram da divisão?
+
+  // Converto meu número de minutos para string para usar padStart()
+  const minutes = String(minutesAmount).padStart(2, '0')
+  const seconds = String(secondsAmount).padStart(2, '0')
 
   const task = watch('task') // Controlled Component
   const isSubmitDisabled = !task
@@ -105,11 +116,11 @@ export function Home() {
         </FormContainer>
 
         <CountdownContainer>
-          <span>0</span>
-          <span>0</span>
+          <span>{minutes[0]}</span>
+          <span>{minutes[1]}</span>
           <Separator>:</Separator>
-          <span>0</span>
-          <span>0</span>
+          <span>{seconds[0]}</span>
+          <span>{seconds[1]}</span>
         </CountdownContainer>
 
         <StartCountdownButton disabled={isSubmitDisabled} type="submit">

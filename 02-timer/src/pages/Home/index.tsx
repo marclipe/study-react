@@ -2,7 +2,8 @@ import { Play } from 'phosphor-react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { differenceInSeconds } from 'date-fns'
 
 import {
   CountdownContainer,
@@ -26,13 +27,15 @@ interface Cycle {
   id: string
   task: string
   minutesAmount: number
+  // Vou salvar a data que o meu timer ficou ativo, para sabermos quanto tempo passou, com base nessa data
+  startDate: Date
 }
 
 export function Home() {
   const [cycles, setCycles] = useState<Cycle[]>([])
   const [aciveCycleId, setAciveCycleId] = useState<string | null>(null)
-  // Vou armazenar o tanto de segundos desde que o ciclo tá ativo
-  const [amountSecondPassed, setAmountSecondPassed] = useState(0)
+
+  const [amountSecondPassed, setAmountSecondsPassed] = useState(0)
 
   // eslint-disable-next-line no-use-before-define
   const { register, handleSubmit, watch, reset } = useForm<NewCycleFormData>({
@@ -43,6 +46,22 @@ export function Home() {
     },
   })
 
+  const activeCycle = cycles.find((cycles) => cycles.id === aciveCycleId)
+  // console.log(activeCycle)
+
+  // Vamos criar o nosso intervalo
+  useEffect(() => {
+    // Se eu tiver um ciclo ativo vou usar um setInterval a cada um segundo
+    if (activeCycle) {
+      setInterval(() => {
+        // A diferença em segundos da data atual e a data que o ciclo começou
+        setAmountSecondsPassed(
+          differenceInSeconds(new Date(), activeCycle.startDate),
+        )
+      }, 1000)
+    }
+  }, [activeCycle]) // Variável externa
+
   type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
 
   function handleCreateNewCycle(data: NewCycleFormData) {
@@ -52,6 +71,7 @@ export function Home() {
       id,
       task: data.task,
       minutesAmount: data.minutesAmount,
+      startDate: new Date(), // Com a data atual, a data que o ciclo iniciou
     }
 
     setCycles((state) => [...state, newCycle])
@@ -60,23 +80,14 @@ export function Home() {
     reset()
   }
 
-  const activeCycle = cycles.find((cycles) => cycles.id === aciveCycleId)
-  // console.log(activeCycle)
-
-  // Tenho que lembrar que o meu ciclo tá ativo ou não
-  // Se o meu ciclo tiver ativo eu multiplico por 60 se não essa variável vai ser zero
   const totalSeconds = activeCycle ? activeCycle.minutesAmount * 60 : 0
-  // Se eu tiver um ciclo ativo total segundos menos os segundos já passados, se não vai ser zero
+
   const currentSeconds = activeCycle ? totalSeconds - amountSecondPassed : 0
 
-  // Total de minutos que vou ter
-  // Math.floor para arrendondar para baixo
   const minutesAmount = Math.floor(currentSeconds / 60)
 
-  // Agora calculo quantos segundos eu tenho do resto desa divisão
-  const secondsAmount = currentSeconds % 60 // Quantos segundos sobram da divisão?
+  const secondsAmount = currentSeconds % 60
 
-  // Converto meu número de minutos para string para usar padStart()
   const minutes = String(minutesAmount).padStart(2, '0')
   const seconds = String(secondsAmount).padStart(2, '0')
 

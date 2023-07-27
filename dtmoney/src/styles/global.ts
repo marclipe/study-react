@@ -19,8 +19,17 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: ${props => props.theme.background};
+    background: ${(props) => props.theme.background};
     -webkit-font-smoothing: antialiased;
+  }
+
+  body, input, textarea, button {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+  }
+
+  h1, h2, h3, h4, h5, strong {
+    font-weight: 600;
   }
 
   button {
@@ -31,4 +40,4 @@ export const GlobalStyle = createGlobalStyle`
     opacity: 0.6;
     cursor: not-allowed;
   }
-`
+`;

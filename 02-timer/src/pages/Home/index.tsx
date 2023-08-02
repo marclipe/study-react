@@ -27,14 +27,12 @@ interface Cycle {
   id: string
   task: string
   minutesAmount: number
-  // Vou salvar a data que o meu timer ficou ativo, para sabermos quanto tempo passou, com base nessa data
   startDate: Date
 }
 
 export function Home() {
   const [cycles, setCycles] = useState<Cycle[]>([])
   const [aciveCycleId, setAciveCycleId] = useState<string | null>(null)
-
   const [amountSecondPassed, setAmountSecondsPassed] = useState(0)
 
   // eslint-disable-next-line no-use-before-define
@@ -47,18 +45,20 @@ export function Home() {
   })
 
   const activeCycle = cycles.find((cycles) => cycles.id === aciveCycleId)
-  // console.log(activeCycle)
 
-  // Vamos criar o nosso intervalo
   useEffect(() => {
-    // Se eu tiver um ciclo ativo vou usar um setInterval a cada um segundo
+    let interval: number
+
     if (activeCycle) {
-      setInterval(() => {
-        // A diferença em segundos da data atual e a data que o ciclo começou
+      interval = setInterval(() => {
         setAmountSecondsPassed(
           differenceInSeconds(new Date(), activeCycle.startDate),
         )
       }, 1000)
+    }
+
+    return () => {
+      clearInterval(interval) // deletar os intervalos inúteis
     }
   }, [activeCycle]) // Variável externa
 
@@ -71,11 +71,12 @@ export function Home() {
       id,
       task: data.task,
       minutesAmount: data.minutesAmount,
-      startDate: new Date(), // Com a data atual, a data que o ciclo iniciou
+      startDate: new Date(),
     }
 
     setCycles((state) => [...state, newCycle])
     setAciveCycleId(id)
+    setAmountSecondsPassed(0) // setar os segundos para 0
 
     reset()
   }
@@ -90,6 +91,13 @@ export function Home() {
 
   const minutes = String(minutesAmount).padStart(2, '0')
   const seconds = String(secondsAmount).padStart(2, '0')
+
+  useEffect(() => {
+    // Só vou executar se o ciclo tiver ativo
+    if (activeCycle) {
+      document.title = `${minutes}:${seconds}`
+    }
+  }, [minutes, seconds, activeCycle])
 
   const task = watch('task') // Controlled Component
   const isSubmitDisabled = !task

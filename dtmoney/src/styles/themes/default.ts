@@ -6,4 +6,6 @@ export const defaultTheme = {
   'blue-light': '#6933FF', 
   'text-title': '#363F5F', 
   'text-body': "#969CB3", 
+  'green': '#33CC95',
+  'white': '#FFF'
 }

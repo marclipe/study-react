@@ -20,7 +20,7 @@ const newCycleFormValidationSchema = zod.object({
   task: zod.string().min(1, 'Informe a tarefa'),
   minutesAmount: zod
     .number()
-    .min(5, 'O ciclo precisa ser de no mínimo 5 minutos')
+    .min(1, 'O ciclo precisa ser de no mínimo 5 minutos')
     .max(60, 'O ciclo precisa ser de no máximo 60 minutos'),
 })
 
@@ -29,12 +29,13 @@ interface Cycle {
   task: string
   minutesAmount: number
   startDate: Date
-  interruptedDate?: Date // ela pode existir ou não
+  interruptedDate?: Date
+  finishedDate?: Date // Vai guardar o valor do ciclo somente se ele for encerrado
 }
 
 export function Home() {
   const [cycles, setCycles] = useState<Cycle[]>([])
-  const [aciveCycleId, setAciveCycleId] = useState<string | null>(null)
+  const [activeCycleId, setActiveCycleId] = useState<string | null>(null)
   const [amountSecondPassed, setAmountSecondsPassed] = useState(0)
 
   // eslint-disable-next-line no-use-before-define
@@ -46,23 +47,46 @@ export function Home() {
     },
   })
 
-  const activeCycle = cycles.find((cycles) => cycles.id === aciveCycleId)
+  const activeCycle = cycles.find((cycles) => cycles.id === activeCycleId)
+
+  const totalSeconds = activeCycle ? activeCycle.minutesAmount * 60 : 0
 
   useEffect(() => {
     let interval: number
 
     if (activeCycle) {
       interval = setInterval(() => {
-        setAmountSecondsPassed(
-          differenceInSeconds(new Date(), activeCycle.startDate),
+        const secondsDifference = differenceInSeconds(
+          new Date(),
+          activeCycle.startDate,
         )
+
+        if (secondsDifference >= totalSeconds) {
+          // Quase a mesma lógica de encerrar o ciclo
+          setCycles((state) =>
+            state.map((cycle) => {
+              if (cycle.id === activeCycleId) {
+                return { ...cycle, finishedDate: new Date() }
+              } else {
+                return cycle
+              }
+            }),
+          )
+
+          // Para ele ficar zerado:
+          setAmountSecondsPassed(totalSeconds)
+
+          clearInterval(interval) // Para parar o nosso intervalo
+        } else {
+          setAmountSecondsPassed(secondsDifference) // Só vou atualizar o tanto de segundos se eu não completei o total de segundos
+        }
       }, 1000)
     }
 
     return () => {
       clearInterval(interval)
     }
-  }, [activeCycle])
+  }, [activeCycle, totalSeconds, activeCycleId])
 
   type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
 
@@ -77,28 +101,25 @@ export function Home() {
     }
 
     setCycles((state) => [...state, newCycle])
-    setAciveCycleId(id)
+    setActiveCycleId(id)
     setAmountSecondsPassed(0)
 
     reset()
   }
 
   function handleInterruptCycle() {
-    setCycles(
-      cycles.map((cycle) => {
-        // a nova informação sendo a data atual
-        if (cycle.id === aciveCycleId) {
+    setCycles((state) =>
+      state.map((cycle) => {
+        if (cycle.id === activeCycleId) {
           return { ...cycle, interruptedDate: new Date() }
         } else {
-          return cycle // sem alterações
+          return cycle
         }
       }),
     )
 
-    setAciveCycleId(null) /// / Vai setar o ciclo de volta para nulo
+    setActiveCycleId(null)
   }
-
-  const totalSeconds = activeCycle ? activeCycle.minutesAmount * 60 : 0
 
   const currentSeconds = activeCycle ? totalSeconds - amountSecondPassed : 0
 
@@ -117,8 +138,6 @@ export function Home() {
 
   const task = watch('task') // Controlled Component
   const isSubmitDisabled = !task
-
-  console.log(cycles)
 
   return (
     <HomeContainer>
@@ -145,7 +164,7 @@ export function Home() {
             id="minutesAmount"
             placeholder="00"
             step={5}
-            min={5}
+            min={1}
             max={60}
             disabled={!!activeCycle}
             {...register('minutesAmount', { valueAsNumber: true })}
@@ -162,7 +181,6 @@ export function Home() {
           <span>{seconds[1]}</span>
         </CountdownContainer>
 
-        {/* Para interromper o ciclo */}
         {activeCycle ? (
           <StopCountdownButton onClick={handleInterruptCycle} type="button">
             <HandPalm size={24} />

@@ -7,5 +7,6 @@ export const defaultTheme = {
   'text-title': '#363F5F', 
   'text-body': "#969CB3", 
   'green': '#33CC95',
-  'white': '#FFF'
+  'white': '#FFF',
+  'input-background': '#e7e9ee'
 }

@@ -5,12 +5,12 @@ import { Header } from "./components/Header";
 import { Dashboard } from "./components/Dashboard";
 import Modal from "react-modal";
 import { useState } from "react";
+import { NewTransactionModal } from "./components/NewTransactionModal";
 
 Modal.setAppElement('#root')
 
 export function App() {
-  const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] =
-    useState(false);
+  const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false);
 
   function handleOpenNewTransactionModalOpen() {
     setIsNewTransactionModalOpen(true);
@@ -24,14 +24,12 @@ export function App() {
     <ThemeProvider theme={defaultTheme}>
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModalOpen} />
 
-      <Dashboard />
-
-      <Modal
+      <NewTransactionModal
         isOpen={isNewTransactionModalOpen}
         onRequestClose={handleCloseNewTransactionModalOpen}
-      >
-        <h2>Cadastrar transação!</h2>
-      </Modal>
+      />
+
+      <Dashboard />
 
       <GlobalStyle />
     </ThemeProvider>

@@ -7,7 +7,7 @@ import {
 import closeImg from '../../assets/close.svg';
 import incomeImg from '../../assets/income.svg'
 import outcomeImg from '../../assets/outcome.svg'
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 
 interface NewTransactionModal {
   isOpen: boolean; 
@@ -16,7 +16,21 @@ interface NewTransactionModal {
 
 export function NewTransactionModal({  
 isOpen, onRequestClose }: NewTransactionModal) {
+  const [title, setTitle] = useState(''); 
+  const [value, setValue] = useState(0); 
+  const [category, setCategory] = useState('');
   const [type, setType] = useState('deposit')
+
+  //Formato do event passado no parâmetro
+  function handleCreateNewTransaction(event: FormEvent) {
+    event.preventDefault()
+    console.log({
+      title, 
+      value,
+      category,
+      type
+    })
+  }
 
   return (
     <Modal 
@@ -32,15 +46,19 @@ isOpen, onRequestClose }: NewTransactionModal) {
       >
         <img src={closeImg} alt="" />
       </button>
-      <ContainerNewTransactionModal>
+      <ContainerNewTransactionModal onSubmit={handleCreateNewTransaction}>
         <h2>Cadastrar transação!</h2>
         <input
           placeholder='Título'
+          value={title}
+          onChange={event => setTitle(event.target.value)}
          />
 
         <input 
           type='number'
           placeholder='Valor' 
+          value={value}
+          onChange={event => setValue(Number(event.target.value))} //Convert to Number
         />
 
         <TransactionTypeContainer>
@@ -48,6 +66,7 @@ isOpen, onRequestClose }: NewTransactionModal) {
             type='button'
             onClick={() => {setType('deposit')}}
             isActive={type === 'deposit'}
+            activeColor="green"
           >
             <img src={incomeImg} alt="Entrada" />
             <span>Entrada</span>
@@ -57,6 +76,7 @@ isOpen, onRequestClose }: NewTransactionModal) {
             onClick={() => {setType('withdraw')}}
             type="button"
             isActive={type === 'withdraw'}
+            activeColor="red"
           >
             <img src={outcomeImg} alt="Saída" />
             <span>Saída</span>
@@ -65,6 +85,8 @@ isOpen, onRequestClose }: NewTransactionModal) {
 
         <input
           placeholder='Categoria'
+          value={category}
+          onChange={event => setCategory(event.target.value)}
          />
 
          <button type="submit">

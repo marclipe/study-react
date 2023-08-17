@@ -30,7 +30,7 @@ isOpen, onRequestClose }: NewTransactionModal) {
       title, 
       value,
       category,
-      type
+      type,
     }
 
     api.post('/transactions', data)

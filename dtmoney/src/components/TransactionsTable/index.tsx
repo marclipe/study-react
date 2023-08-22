@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { api } from "../../services/api"
 import { ContainerTrasactionsTable } from "./styles";
+import { TransactionsContext } from "../../TransactionsContext";
 
 interface Transaction {
   type: string;
@@ -12,6 +13,8 @@ interface Transaction {
 }
 
 export function TrasactionsTable(){
+  const data = useContext(TransactionsContext);
+
   //O meu estado armazena um Array de transaction
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 

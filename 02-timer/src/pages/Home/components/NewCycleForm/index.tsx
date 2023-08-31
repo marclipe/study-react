@@ -1,6 +1,8 @@
 import { FormContainer, MinutesAmoutInput, TaskInput } from './styles'
 
 export function NewCycleForm() {
+  type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
+
   return (
     <FormContainer>
       <label htmlFor="task">Vou trabalhar em</label>

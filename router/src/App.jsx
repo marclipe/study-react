@@ -3,13 +3,15 @@ import { Home } from "./pages/Home/Home";
 import { Twitter } from "./pages/Twitter/Twitter";
 import { Facebook } from "./pages/Facebook/Facebook";
 import { Instagram } from "./pages/Instagram/Instagram";
+import { Navbar } from "./components/Navbar/Navbar";
+import '../src/global.css'
 
 //1- Config React Router
 export function App() {
   return (
     <>
-      <h1>Social Medias</h1>
       <BrowserRouter>
+        <Navbar/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/twitter" element={<Twitter />} />

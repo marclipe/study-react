@@ -1,5 +1,8 @@
 # React Router 
 
+
+### Config the React Router 
+
 `npm install react-router-dom`
 
 My example 
@@ -21,3 +24,21 @@ export function App() {
   );
 }
 ```
+
+### Add Links
+- `Link`
+- Param `to` that receives the URL/path
+
+```
+  <nav>
+    <Link to="/">Home</Link>
+    <Link to="/instagram">Instagram</Link>
+    <Link to="/twitter">Twitter</Link>
+    <Link to="/facebook">Facebook</Link>
+  </nav>
+```
+
+### Loading data
+- useFetch
+- Loading data individuals
+- Use custom hook

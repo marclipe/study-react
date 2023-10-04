@@ -1,5 +1,7 @@
 export function Facebook() {
   return (
-    <h1>Facebook</h1>
+    <div>
+      <h1>Facebook</h1>
+    </div>
   )
 }

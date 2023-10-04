@@ -11,7 +11,7 @@ function createList() {
     initialList.push(
       {
         id: i,
-        text: 'Item' + (i + 1)
+        text: 'Item ' + (i + 1)
       }
     )
   }
@@ -30,6 +30,7 @@ export const List = () => {
         onChange={function (event) {
           setText(event.target.value);
         }}
+        required
       />
       <button
         onClick={function () {
@@ -48,7 +49,7 @@ export const List = () => {
       <ul>
         {list.map((item) => (
           <li key={item.id}>
-            item.text
+            {item.text}
           </li>
         ))}
       </ul>

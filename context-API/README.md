@@ -43,3 +43,7 @@
 ### What is React Node? 
 
 ReactNode is a type that represents a React element, an array of React elements, or a string, number, or boolean. It is defined in the react module and can be used to specify the type of a variable that can hold any of these types.
+
+https://www.devmedia.com.br/react-js-passando-dados-com-context-api/42904
+
+https://www.freecodecamp.org/news/context-api-in-react/

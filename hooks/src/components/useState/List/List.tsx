@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './styles.scss'
 
 interface CreateListProps {
   id: number, 
@@ -24,35 +25,39 @@ export const List = () => {
   const [text, setText] = useState('')
 
   return (
-    <>
-      <input
-        value={text}
-        onChange={function (event) {
-          setText(event.target.value);
-        }}
-        required
-      />
-      <button
-        onClick={function () {
-          setText("");
-          setList([
-            {
-              id: list.length,
-              text: text,
-            },
-            ...list,
-          ]);
-        }}
-      >
-        Add
-      </button>
-      <ul>
-        {list.map((item) => (
-          <li key={item.id}>
-            {item.text}
-          </li>
-        ))}
-      </ul>
-    </>
+    <section>
+      <div>
+        <input
+          value={text}
+          onChange={function (event) {
+            setText(event.target.value);
+          }}
+          required
+        />
+        <button
+          onClick={function () {
+            setText("");
+            setList([
+              {
+                id: list.length,
+                text: text,
+              },
+              ...list,
+            ]);
+          }}
+        >
+          Add
+        </button>
+      </div>
+      <div>
+        <ul>
+          {list.map((item) => (
+            <li key={item.id}>
+              {item.text}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
   );
 }

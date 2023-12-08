@@ -3,25 +3,8 @@ import { api } from "../../services/api"
 import { ContainerTrasactionsTable } from "./styles";
 import { TransactionsContext } from "../../TransactionsContext";
 
-interface Transaction {
-  type: string;
-  id: number;
-  title: string;
-  amount: number;
-  category: string; 
-  createdAt: string;
-}
-
 export function TrasactionsTable(){
-  const data = useContext(TransactionsContext);
-
-  //O meu estado armazena um Array de transaction
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
-
-  useEffect(() => {
-    api.get("/transactions")
-    .then(response => setTransactions(response.data.transactions)) //salvo os dados no estado!
-  }, [])
+  const transactions = useContext(TransactionsContext);
 
   return (
     <ContainerTrasactionsTable>
